@@ -88,6 +88,7 @@ Please answer the below question based only on the above passage.
 Question: What did Pope Pius V establish in 1570?"""
 
 dummy_text = dummy_text.strip()
+cache_dir = '/mnt/sda/classify-nlp/cache'
 
 
 @st.cache_resource(max_entries=1)
@@ -98,9 +99,9 @@ def load_model(model_name: str, device="cuda"):
             engine=model_name.replace(
                 "openai-", ""), format_fn=None)
     else:
-        tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+        tokenizer = transformers.AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
         model = transformers.AutoModelForCausalLM.from_pretrained(
-            model_name, torch_dtype=torch.bfloat16, trust_remote_code=True, device_map="auto")
+            model_name, torch_dtype=torch.bfloat16, trust_remote_code=True, device_map="auto", cache_dir=cache_dir)
         model_wrapped = HF_LM(model, tokenizer, device=device, format_fn=None)
     return model_wrapped
 

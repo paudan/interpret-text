@@ -1,5 +1,5 @@
 import { DOMWidgetModel, DOMWidgetView } from '@jupyter-widgets/base';
-import { ExplanationDashboard } from '../../../../../visualization/dashboard/rel/MLIDashboard/ExplanationDashboard'
+import { ExplanationDashboard } from '../../../../../../visualization/dashboard/rel/MLIDashboard/ExplanationDashboard'
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -42,7 +42,7 @@ export class ExplanationView extends DOMWidgetView {
         root_element.style.cssText = 'width: 100%;';
         const data = this.model.get('value');
         ReactDOM.render(<ExplanationDashboard
-            modelInformation = {{modelClass: 'msra'} as any}
+//            modelInformation = {{modelClass: 'msra'} as any}
             dataSummary = {{
                 text: data.text,
                 classNames: data.classNames,
