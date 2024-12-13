@@ -7,10 +7,16 @@ The visualization dashboard is a modular component that will take in an Explanat
 - [Build](#build)
 - [Widget](#widget)
 
-<a name="getting-started"></a>
 ## Getting Started
+
 ### Setting up your environment
 The dashboard uses Typescript and React as it's main language and framework. NPM is the package management system that will be used throughout this document, but other package management systems can be used.
+
+The build process also requires Python 2; it should be installed using 
+```
+apt install python2.7
+```
+
 ### Feature Development
 The dashboard currently uses [Office UI Fabric](https://developer.microsoft.com/en-us/fabric#/get-started) and [mlchartlib](https://github.com/microsoft/responsible-ai-toolbox/tree/main/libs/mlchartlib) for development.
 
@@ -21,19 +27,18 @@ The dashboard is then broken down into controls and interfaces. The control fold
 ### Styling
 The dashboard uses [SCSS](https://sass-lang.com/) for styling. [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is used to setup the layout of the dashboard. 
 
-<a name="build"></a>
 ## Build
 Before testing in the widget, the dashboard can be tested locally by running the following commands.
 
 - from interpret-community-text/visualization/dashboard
-	> npm run-script build
-	> npm run-script build-css
+    > npm run-script build
+    > npm run-script build-css
+    
 - from interpret-community-text/visualization/test
-	> npm run-script build
-	> npm start
+    > npm run-script build
+    > npm start
 
 This will open up a local web app which will display the dashboard. Then, the dashboard can be converted into an ipywidget and be rendered in a Jupyter Notebook.
 
-<a name="widget"></a>
 ## Widget
 The README in the widget folder describes the contract between the Python API and Explanation Dashboard. It also details how to build and compile the dashboard in widget form. 
